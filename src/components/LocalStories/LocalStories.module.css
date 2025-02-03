@@ -1,0 +1,54 @@
+.storiesSection {
+  background: #f5f5f5;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+
+.imageWrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.image {
+  width: 130px;
+  height: 130px;
+}
+
+.content {
+  font-size: 2rem;
+}
+
+.quote {
+  font-family: Georgia, serif;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+}
+
+.storiesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .storiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

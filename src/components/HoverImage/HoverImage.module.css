@@ -1,0 +1,41 @@
+/* HoverImage.module.css */
+.container {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.circle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  pointer-events: none;
+  transform-origin: center;
+}
+
+.line {
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background-color: #000;
+  pointer-events: none;
+}
+
+.description {
+  position: absolute;
+  background-color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  pointer-events: none;
+  z-index: 10;
+}

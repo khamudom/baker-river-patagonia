@@ -1,0 +1,100 @@
+.sections {
+  background-color: #f8f9fa;
+}
+
+.section {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.section:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contentWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Reduced gap between image and text */
+}
+
+.imageContainer {
+  width: 100%;
+  position: relative;
+  max-width: 600px; /* Slightly smaller max-width */
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  background-color: #e9ecef;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textContainer {
+  width: 100%;
+  opacity: 0;
+  max-width: 600px; /* Match image container width */
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced gap in text content */
+  padding: 0.5rem; /* Added small padding */
+}
+
+.heading {
+  font-size: 2rem; /* Slightly smaller heading */
+  font-weight: 700;
+  color: #212529;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.paragraph {
+  font-size: 1.125rem;
+  color: #495057;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Media query for desktop layout */
+@media (min-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .contentWrapper {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start; /* Align items to top */
+    gap: 2rem; /* Moderate gap for desktop */
+  }
+
+  .imageContainer {
+    width: 45%; /* Slightly less than half */
+  }
+
+  .textContainer {
+    width: 45%; /* Slightly less than half */
+    padding-top: 1rem; /* Align with image top */
+  }
+}

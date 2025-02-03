@@ -1,0 +1,56 @@
+.intro {
+  position: relative;
+  padding: 12rem 2rem;
+  background: #f5f5f5;
+  color: #111;
+}
+
+.leadText {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  font-weight: lighter;
+  font-style: italic;
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cta {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: #111;
+  color: white;
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: white;
+  color: #111;
+}
+
+.footer {
+  padding: 4rem 2rem;
+  background: #111;
+  color: white;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
