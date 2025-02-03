@@ -31,9 +31,9 @@ const contentData = [
 ];
 
 const ImageTextReveal = () => {
-  const sectionRefs = useRef([]);
-  const imageRefs = useRef([]);
-  const textRefs = useRef([]);
+  const sectionRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const textRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

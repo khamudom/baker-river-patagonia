@@ -8,15 +8,11 @@ import { CallToAction } from "./components/CallToAction";
 import { Footer } from "./components/Footer";
 import { Conservation } from "./components/Conservation";
 import { TestimonialSection } from "./components/Testimonial/TestimonialSection";
-// import { HoverImage } from "./components/HoverImage";
-// import { ImageTextReveal } from "./components/ImageTextReveal";
 
 function App() {
   return (
     <>
-      {/** Header */}
       <Header />
-
       <main>
         {/** Hero */}
         <section className={styles.hero}>
@@ -35,15 +31,8 @@ function App() {
         </section>
         <MapSection />
         <RiverDetails />
-        {/* <HoverImage
-          src="/images/br_thecanyons.jpg"
-          alt="baker river canyons"
-          description="this the canyons"
-          width={400}
-        /> */}
         {/** Rich Biodiversity – A River Full of Life */}
         <RiverTimeline />
-        {/** Conservation Efforts – Protecting the River’s Future */}
         <Conservation />
         <TestimonialSection />
         <CallToAction />
