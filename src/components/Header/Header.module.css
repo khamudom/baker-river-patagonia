@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: #fff;
-  color: #111;
+  background: var(--color-white);
+  color: var(--color-text-dark);
   position: fixed;
   top: 0;
   width: 100%;

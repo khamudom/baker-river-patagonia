@@ -1,12 +1,12 @@
 .intro {
   position: relative;
   padding: 12rem 2rem;
-  background: #f5f5f5;
-  color: #111;
+  background: var(--background-intro);
+  color: var(--color-text-dark);
 }
 
 .leadText {
-  font-family: Georgia, serif;
+  font-family: var(--font-family-body);
   font-size: 3rem;
   font-weight: lighter;
   font-style: italic;
@@ -18,8 +18,8 @@
 .cta {
   padding: 8rem 2rem;
   text-align: center;
-  background: #111;
-  color: white;
+  background: var(--background-call-to-action);
+  color: var(--color-text-light);
 }
 
 .ctaButton {
@@ -30,21 +30,21 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid var(--color-text-light);
+  color: var(--color-text-light);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .ctaButton:hover {
-  background: white;
-  color: #111;
+  background: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 .footer {
   padding: 4rem 2rem;
-  background: #111;
-  color: white;
+  background: var(--background-footer);
+  color: var(--color-text-light);
 }
 
 .footerContent {

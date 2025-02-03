@@ -1,4 +1,3 @@
-/* Testimonial.module.css */
 .container {
   display: flex;
   flex-direction: column;
@@ -22,9 +21,43 @@
   font-size: 1.75rem;
   line-height: 1.4;
   font-weight: 500;
-  color: #1a1a1a;
+  color: inherit;
   margin: 0;
   letter-spacing: -0.02em;
+  position: relative;
+  text-align: left;
+}
+
+.rightQuote .quote {
+  text-align: right;
+}
+
+.rightQuote .quote {
+  text-align: right;
+}
+
+.quoteMark {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-text-accent);
+  vertical-align: baseline;
+}
+
+.quoteMarkEnd {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--color-text-accent);
+  vertical-align: baseline;
+  white-space: nowrap;
+  margin-left: 0.2rem;
+}
+
+.quoteMark:first-child {
+  margin-right: 0.2rem;
+}
+
+.quoteMark:last-child {
+  margin-left: 0.2rem;
 }
 
 .personaContainer {
@@ -65,13 +98,13 @@
 .name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: inherit;
   margin: 0;
 }
 
 .role {
   font-size: 1rem;
-  color: #666;
+  color: inherit;
   font-style: italic;
   margin: 0;
 }

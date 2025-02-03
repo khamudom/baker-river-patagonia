@@ -10,36 +10,67 @@ gsap.registerPlugin(ScrollTrigger);
 const gallery = [
   {
     id: "1",
-    url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    title: "Modern Architecture",
+    url: "/images/conservation/Map-of-the-Patagonian-ice-001.webp",
     description:
       "Contemporary design meets urban living in this stunning architectural masterpiece.",
   },
   {
     id: "2",
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    title: "Interior Design",
+    url: "/images/conservation/iLCP-Rave--Hydroaysen-dam-001.webp",
+    description:
+      "Contemporary design meets urban living in this stunning architectural masterpiece.",
+  },
+  {
+    id: "3",
+    url: "/images/conservation/iLCP-Rave--Hydroaysen-dam-008.webp",
     description:
       "Minimalist aesthetics create a sense of calm and sophistication.",
   },
   {
-    id: "3",
-    url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    title: "Living Spaces",
+    id: "4",
+    url: "/images/conservation/iLCP-Rave--Hydroaysen-dam-009.webp",
     description:
       "Where comfort meets style in thoughtfully designed environments.",
   },
   {
-    id: "4",
-    url: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    title: "Urban Living",
+    id: "5",
+    url: "/images/conservation/iLCP-Rave--Hydroaysen-dam-012.webp",
     description:
       "City life reimagined through innovative architectural solutions.",
   },
   {
-    id: "5",
-    url: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
-    title: "Design Details",
+    id: "6",
+    url: "/images/conservation/iLCP-Rave--Hydroaysen-dam-014.webp",
+    description:
+      "Every element carefully considered to create harmonious spaces.",
+  },
+  {
+    id: "7",
+    url: "/images/conservation/Rapid-Assessment-Visual-E-002.webp",
+    description:
+      "Every element carefully considered to create harmonious spaces.",
+  },
+  {
+    id: "8",
+    url: "/images/conservation/Rapid-Assessment-Visual-E-013.webp",
+    description:
+      "Every element carefully considered to create harmonious spaces.",
+  },
+  {
+    id: "9",
+    url: "/images/conservation/Rapid-Assessment-Visual-E-014.webp",
+    description:
+      "Every element carefully considered to create harmonious spaces.",
+  },
+  {
+    id: "10",
+    url: "/images/conservation/Rapid-Assessment-Visual-E-020.webp",
+    description:
+      "Every element carefully considered to create harmonious spaces.",
+  },
+  {
+    id: "11",
+    url: "/images/conservation/Rapid-Assessment-Visual-E-022.webp",
     description:
       "Every element carefully considered to create harmonious spaces.",
   },
@@ -57,18 +88,19 @@ const Conservation = () => {
 
       const galleryHeight = galleryRef.current.scrollHeight;
       const viewportHeight = window.innerHeight;
-      const scrollDistance = (galleryHeight - viewportHeight) * 1.08;
+      const scrollDistance = galleryHeight - viewportHeight;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 5%",
-          end: `+=${scrollDistance}`,
+          // end: `+=${scrollDistance}`,
+          end: `${galleryHeight}px`,
           pin: containerRef.current,
-          anticipatePin: 1,
+          // anticipatePin: 1,
           scrub: 0.5,
           invalidateOnRefresh: true,
-          markers: true, // Remove this in production
+          markers: true,
         },
       });
 

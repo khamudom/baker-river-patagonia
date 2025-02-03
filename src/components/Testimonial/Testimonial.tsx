@@ -80,51 +80,51 @@ const Testimonial: React.FC<TestimonialProps> = ({
     });
 
     // Hover animations
-    const moveDirection = position === "left" ? -1 : 1;
+    // const moveDirection = position === "left" ? -1 : 1;
 
-    const quoteHoverAnimation = gsap.to(quoteElement, {
-      x: 10 * moveDirection * -1,
-      duration: 0.3,
-      ease: "power2.out",
-      paused: true,
-    });
+    // const quoteHoverAnimation = gsap.to(quoteElement, {
+    //   x: 10 * moveDirection * -1,
+    //   duration: 0.3,
+    //   ease: "power2.out",
+    //   paused: true,
+    // });
 
-    const personaHoverAnimation = gsap.to(personaElement, {
-      x: 10 * moveDirection,
-      duration: 0.3,
-      ease: "power2.out",
-      paused: true,
-    });
+    // const personaHoverAnimation = gsap.to(personaElement, {
+    //   x: 10 * moveDirection,
+    //   duration: 0.3,
+    //   ease: "power2.out",
+    //   paused: true,
+    // });
 
     // Store animations for cleanup
     animationsRef.current = [
       entranceAnimation,
       fadeAnimation,
-      quoteHoverAnimation,
-      personaHoverAnimation,
+      // quoteHoverAnimation,
+      // personaHoverAnimation,
     ];
 
     // Store ScrollTriggers for cleanup
     scrollTriggersRef.current = [entranceScrollTrigger, fadeScrollTrigger];
 
     // Event listeners
-    const handleEnter = () => {
-      quoteHoverAnimation.play();
-      personaHoverAnimation.play();
-    };
+    // const handleEnter = () => {
+    //   quoteHoverAnimation.play();
+    //   personaHoverAnimation.play();
+    // };
 
-    const handleLeave = () => {
-      quoteHoverAnimation.reverse();
-      personaHoverAnimation.reverse();
-    };
+    // const handleLeave = () => {
+    //   quoteHoverAnimation.reverse();
+    //   personaHoverAnimation.reverse();
+    // };
 
-    container.addEventListener("mouseenter", handleEnter);
-    container.addEventListener("mouseleave", handleLeave);
+    // container.addEventListener("mouseenter", handleEnter);
+    // container.addEventListener("mouseleave", handleLeave);
 
     // Cleanup function
     return () => {
-      container.removeEventListener("mouseenter", handleEnter);
-      container.removeEventListener("mouseleave", handleLeave);
+      // container.removeEventListener("mouseenter", handleEnter);
+      // container.removeEventListener("mouseleave", handleLeave);
 
       // Kill only our animations
       animationsRef.current.forEach((animation) => {
@@ -146,7 +146,11 @@ const Testimonial: React.FC<TestimonialProps> = ({
           position === "right" ? styles.rightQuote : ""
         }`}
       >
-        <blockquote className={styles.quote}>{quote}</blockquote>
+        <blockquote className={styles.quote}>
+          <span className={styles.quoteMark}>“</span>
+          {quote}
+          <span className={styles.quoteMarkEnd}>”</span>
+        </blockquote>
       </div>
 
       <div

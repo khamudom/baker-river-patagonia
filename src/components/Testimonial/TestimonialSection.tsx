@@ -1,4 +1,3 @@
-// TestimonialSection.tsx
 import React, { useEffect } from "react";
 import Testimonial from "./Testimonial";
 import styles from "./TestimonialSection.module.css";
@@ -6,42 +5,42 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const testimonialData = [
   {
-    image: "/eduardo-campos.jpg",
+    image: "/images/eduardo.webp",
     quote:
       "Each rapid has its own voice. When you learn to listen, the river warns you of changes upstream.",
     name: "Eduardo Campos",
     role: "River Guide",
   },
   {
-    image: "/maria-sepulveda.jpg",
+    image: "/images/maria.webp",
     quote:
       "Our ancestors read these waters like you read books. The knowledge flows through generations.",
     name: "Maria Sepúlveda",
     role: "Indigenous Elder",
   },
   {
-    image: "/pablo-rojas.jpg",
+    image: "/images/pablo.webp",
     quote:
       "The Baker River is a living force. It gives life, it shapes the land, and it reminds us of nature’s power.",
     name: "Pablo Rojas",
     role: "Environmental Activist",
   },
   {
-    image: "/sofia-alvarez.jpg",
+    image: "/images/sofia.webp",
     quote:
       "Standing at the river’s edge, you feel its pulse—wild, relentless, and full of stories waiting to be told.",
     name: "Sofía Álvarez",
     role: "Photographer & Writer",
   },
   {
-    image: "/carlos-mendez.jpg",
+    image: "/images/carlos.webp",
     quote:
       "Fishing here is more than a pastime; it’s a dialogue with the river, a lesson in patience and respect.",
     name: "Carlos Méndez",
     role: "Local Fisherman",
   },
   {
-    image: "/valentina-araya.jpg",
+    image: "/images/valentina.webp",
     quote:
       "I have traveled the world, but nothing compares to the electric blue of the Baker’s waters. It’s a sight that stays with you forever.",
     name: "Valentina Araya",

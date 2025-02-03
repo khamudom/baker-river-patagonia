@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
@@ -25,8 +26,8 @@ export const ScrollVideo = ({
   const mediaWrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
       if (
         !containerRef.current ||
         !mediaWrapperRef.current ||
@@ -38,11 +39,11 @@ export const ScrollVideo = ({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "bottom top", // Ensures no extra space is added
+          end: "bottom top",
           scrub: true,
           pin: true,
-          pinSpacing: false, // Prevents GSAP from adding padding/margin
-          anticipatePin: 0, // Reduces pinning calculation lag
+          pinSpacing: false, // Prevents GSAP from adding extra spacing
+          anticipatePin: 1,
           id: "scrollVideoTrigger",
         },
       });
@@ -60,13 +61,9 @@ export const ScrollVideo = ({
         },
         "<"
       );
-    }, containerRef);
-
-    return () => {
-      ScrollTrigger.getById("scrollVideoTrigger")?.kill();
-      ctx.revert();
-    };
-  }, []);
+    },
+    { scope: containerRef }
+  );
 
   return (
     <div ref={containerRef} className={styles.section}>

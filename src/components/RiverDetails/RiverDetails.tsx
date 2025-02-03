@@ -1,8 +1,4 @@
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import { SectionReveal } from "../animation/SectionReveal";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const RiverDetails = () => {
   return (

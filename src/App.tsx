@@ -14,15 +14,13 @@ function App() {
     <>
       <Header />
       <main>
-        {/** Hero */}
         <section className={styles.hero}>
           <ScrollVideo
             imgSrc="/images/bakerriver04.png"
-            title="The Language of Rapids"
-            subtitle="Decoding the Baker River"
+            title="Born of Ice, Carved by Time"
+            subtitle="The Journey of Patagonia’s Lifeline"
           />
         </section>
-        {/** Introduction */}
         <section className={styles.intro}>
           <p className={styles.leadText}>
             It is more than a river—it is the lifeblood of an untamed land, a
@@ -31,7 +29,6 @@ function App() {
         </section>
         <MapSection />
         <RiverDetails />
-        {/** Rich Biodiversity – A River Full of Life */}
         <RiverTimeline />
         <Conservation />
         <TestimonialSection />

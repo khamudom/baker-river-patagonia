@@ -1,6 +1,7 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import riverGeoJson from "./riverBakerGeoJson";
@@ -12,31 +13,28 @@ export const MapSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const contentContainerRef = useRef<HTMLDivElement>(null);
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<L.Map | null>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<L.Map | null>(null);
 
-  // ✅ Staggered animation: Title first, then Map + Caption together
-  useLayoutEffect(() => {
-    if (!sectionRef.current) return;
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top center+=200",
-          toggleActions: "play none none reverse",
-        },
-      });
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top center+=200",
+            toggleActions: "play none none reverse",
+          },
+        });
 
-      // Title animates first
-      tl.from(titleRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-      })
-        // Map + Caption animate together
-        .from(
+        tl.from(titleRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out",
+        }).from(
           contentContainerRef.current,
           {
             opacity: 0,
@@ -44,25 +42,27 @@ export const MapSection = () => {
             duration: 1.2,
             ease: "power3.out",
           },
-          "-=0.8" // Starts slightly before the title animation finishes
+          "-=0.8"
         );
-    }, sectionRef);
+      }, sectionRef);
 
-    return () => ctx.revert(); // ✅ Cleanup on unmount
-  }, []);
+      return () => ctx.revert();
+    },
+    { scope: sectionRef }
+  );
 
-  // ✅ Initialize Leaflet Map
+  // Initialize Leaflet Map only once
   useEffect(() => {
-    if (!mapContainer.current) return;
+    if (!mapContainerRef.current || mapInstance.current) return;
 
-    map.current = L.map(mapContainer.current, {
+    mapInstance.current = L.map(mapContainerRef.current, {
       scrollWheelZoom: false,
     });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map.current);
+    }).addTo(mapInstance.current);
 
     const riverLayer = L.geoJSON(riverGeoJson, {
       style: {
@@ -70,12 +70,13 @@ export const MapSection = () => {
         weight: 5,
         opacity: 0.8,
       },
-    }).addTo(map.current);
+    }).addTo(mapInstance.current);
 
-    map.current.fitBounds(riverLayer.getBounds());
+    mapInstance.current.fitBounds(riverLayer.getBounds());
 
     return () => {
-      map.current?.remove();
+      mapInstance.current?.remove();
+      mapInstance.current = null;
     };
   }, []);
 
@@ -90,7 +91,7 @@ export const MapSection = () => {
 
       {/* Content Container (Map + Caption together) */}
       <div ref={contentContainerRef} className={styles.contentContainer}>
-        <div ref={mapContainer} className={styles.map} />
+        <div ref={mapContainerRef} className={styles.map} />
         <figcaption className={styles.caption}>
           <p>
             Follow the winding path of the Baker River, a lifeline of Chilean

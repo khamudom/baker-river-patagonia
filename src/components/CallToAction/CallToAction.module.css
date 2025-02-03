@@ -1,6 +1,10 @@
 .cta {
-  background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--color-text-dark) 0%,
+    var(--color-charcoal-gray) 100%
+  );
+  color: var(--color-text-light);
   min-height: 60vh;
   display: flex;
   align-items: center;
@@ -19,7 +23,7 @@
 }
 
 .icon {
-  color: turquoise;
+  color: var(--color-glacial-blue);
   margin-bottom: 2rem;
 }
 
@@ -28,6 +32,7 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
+  font-family: var(--font-family-heading);
 }
 
 .description {
@@ -35,6 +40,7 @@
   line-height: 1.8;
   margin-bottom: 3rem;
   opacity: 0.9;
+  font-family: var(--font-family-body);
 }
 
 .primaryButton,
@@ -51,8 +57,8 @@
 
 .secondaryButton {
   background: transparent;
-  color: white;
-  border: 2px solid white;
+  color: var(--color-text-light);
+  border: 2px solid var(--color-text-light);
 }
 
 .secondaryButton:hover {

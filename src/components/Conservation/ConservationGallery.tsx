@@ -4,7 +4,7 @@ import styles from "./Conservation.module.css";
 interface GalleryImage {
   id: string;
   url: string;
-  title: string;
+  title?: string;
   description: string;
 }
 

@@ -1,39 +1,42 @@
-import { useState, useEffect } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const headerRef = useRef<HTMLElement>(null);
+  const prevScrollPos = useRef(window.scrollY);
+  const isHidden = useRef(false); // Track hidden state
 
-  useEffect(() => {
+  useGSAP(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
     const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
+      requestAnimationFrame(() => {
+        const currentScrollPos = window.scrollY;
+        const isScrollingDown = currentScrollPos > prevScrollPos.current;
+        prevScrollPos.current = currentScrollPos;
 
-      // Show header at the top of the page
-      if (currentScrollPos < 100) {
-        setIsVisible(true);
-        setPrevScrollPos(currentScrollPos);
-        return;
-      }
-
-      // Determine scroll direction and distance
-      const isScrollingDown = currentScrollPos > prevScrollPos;
-      const scrollDistance = Math.abs(currentScrollPos - prevScrollPos);
-
-      // Only trigger if scrolled more than 10px to prevent tiny movements
-      if (scrollDistance > 10) {
-        setIsVisible(!isScrollingDown);
-        setPrevScrollPos(currentScrollPos);
-      }
+        if (isScrollingDown && currentScrollPos > 50 && !isHidden.current) {
+          gsap.set(header, { y: -100 }); // Hide Header
+          isHidden.current = true;
+        } else if (!isScrollingDown && isHidden.current) {
+          gsap.set(header, { y: 0 }); // Show Header
+          isHidden.current = false;
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={`${styles.header} ${!isVisible ? styles.hidden : ""}`}>
+    <header ref={headerRef} className={styles.header}>
       <img
         className={styles.logo}
         src="images/patagonia-logo.png"

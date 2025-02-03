@@ -6,6 +6,7 @@
   align-items: center; /* Ensures vertical centering */
   justify-content: center;
   margin-bottom: 0 !important; /* Prevents any extra margin */
+  background-color: var(--background-hero);
 }
 
 .mediaWrapper {
@@ -26,6 +27,9 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  background-color: var(
+    --color-text-dark-opacity
+  ); /* Use a semi-transparent dark overlay */
 }
 
 .content {
@@ -34,10 +38,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: var(--color-text-light);
   z-index: 1;
   width: 90%;
   max-width: 1200px;
+  font-family: var(--font-family-heading);
 }
 
 .content h1 {
@@ -57,7 +62,7 @@
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
-  color: white;
+  color: var(--color-text-light);
 }
 
 /* Prevent any extra spacing below the section */

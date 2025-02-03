@@ -1,6 +1,6 @@
 .footer {
-  background: #2d3436;
-  color: white;
+  background: var(--background-footer);
+  color: var(--color-text-light);
   padding: 4rem 2rem 2rem;
 }
 
@@ -26,11 +26,13 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  font-family: var(--font-family-heading);
 }
 
 .text {
   line-height: 1.6;
   opacity: 0.8;
+  font-family: var(--font-family-body);
 }
 
 .list {
@@ -49,7 +51,7 @@
 }
 
 .social a {
-  color: white;
+  color: var(--color-text-light);
   opacity: 0.8;
   transition: all 0.3s ease;
 }
@@ -68,6 +70,7 @@
 .copyright {
   opacity: 0.6;
   font-size: 0.9rem;
+  font-family: var(--font-family-body);
 }
 
 @media (max-width: 768px) {

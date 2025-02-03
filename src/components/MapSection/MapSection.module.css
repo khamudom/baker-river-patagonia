@@ -1,18 +1,21 @@
 .mapSection {
   padding: 20px;
   text-align: center;
-  background: #f5f5f5;
-  color: #333;
-  font-family: Georgia, serif;
+  background: var(--background-map);
+  color: var(--color-text-dark);
+  font-family: var(--font-family-body);
+  position: relative;
+  z-index: 1;
 }
 
 .title {
   font-size: clamp(2rem, 4vw, 2.5rem);
-  color: #000;
+  color: var(--color-text-dark);
   margin-bottom: 2rem;
   font-weight: normal;
   text-align: center;
   letter-spacing: -0.02em;
+  font-family: var(--font-family-heading);
 }
 
 .map {
@@ -23,7 +26,7 @@
 }
 
 .marker {
-  background-color: #0077cc;
+  background-color: var(--color-glacial-blue);
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -31,9 +34,9 @@
 }
 
 .caption p {
-  font-family: Georgia, serif;
+  font-family: var(--font-family-body);
   font-style: italic;
-  color: #666;
+  color: var(--color-text-accent);
   font-size: 1rem;
   margin-top: 1rem;
   text-align: left;

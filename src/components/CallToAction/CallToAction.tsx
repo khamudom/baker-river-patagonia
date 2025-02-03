@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Heart, Mail } from "lucide-react";
@@ -10,8 +11,10 @@ const CallToAction = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
+  useGSAP(
+    () => {
+      if (!contentRef.current) return;
+
       gsap.fromTo(
         contentRef.current,
         { opacity: 0, y: 50 },
@@ -23,16 +26,12 @@ const CallToAction = () => {
             trigger: contentRef.current,
             start: "top 80%",
             toggleActions: "play none none reverse",
-            id: "ctaTrigger",
           },
         }
       );
-    }
-
-    return () => {
-      ScrollTrigger.getById("ctaTrigger")?.kill();
-    };
-  }, []);
+    },
+    { scope: sectionRef }
+  );
 
   return (
     <section ref={sectionRef} className={styles.cta}>
