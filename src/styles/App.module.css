@@ -1,13 +1,13 @@
 .intro {
   position: relative;
-  padding: 12rem 2rem;
+  padding: 0 2rem 8rem 2rem;
   background: var(--background-intro);
   color: var(--color-text-dark);
 }
 
 .leadText {
   font-family: var(--font-family-body);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: lighter;
   font-style: italic;
   max-width: 1200px;

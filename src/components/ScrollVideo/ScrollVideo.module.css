@@ -27,14 +27,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-color: var(
-    --color-text-dark-opacity
-  ); /* Use a semi-transparent dark overlay */
+  background-color: var(--color-text-dark-opacity);
 }
 
 .content {
   position: absolute;
-  top: 50%; /* Adjusted from 60% to 50% for better centering */
+  bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -53,7 +51,6 @@
 .content h2 {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 400;
-  opacity: 0.9;
 }
 
 .scrollIcon {

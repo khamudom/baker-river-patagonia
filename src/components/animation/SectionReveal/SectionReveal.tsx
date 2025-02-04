@@ -4,11 +4,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./SectionReveal.module.css";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-interface RevealSectionProps {
-  title: string;
+interface SectionRevealProps {
+  title?: string;
   children: ReactNode;
   imageSrc?: string;
   imageAlt?: string;
@@ -23,7 +22,7 @@ const SectionReveal = ({
   imageAlt = "",
   imageCaption,
   className = "",
-}: RevealSectionProps) => {
+}: SectionRevealProps) => {
   // Refs for animation targets
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -71,13 +70,13 @@ const SectionReveal = ({
         );
       }
     },
-    { scope: sectionRef } // Scope animations to this component
+    { scope: sectionRef }
   );
 
   return (
     <section
       ref={sectionRef}
-      className={`${styles.revealSection} ${className}`}
+      className={`${styles.sectionReveal} ${className}`}
     >
       <div className={styles.container}>
         {imageSrc && (

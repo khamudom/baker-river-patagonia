@@ -1,5 +1,5 @@
 .mapSection {
-  padding: 20px;
+  padding: 4rem 2rem 2rem 2rem;
   text-align: center;
   background: var(--background-map);
   color: var(--color-text-dark);
@@ -36,7 +36,7 @@
 .caption p {
   font-family: var(--font-family-body);
   font-style: italic;
-  color: var(--color-text-accent);
+  color: var(--color-text-dark);
   font-size: 1rem;
   margin-top: 1rem;
   text-align: left;

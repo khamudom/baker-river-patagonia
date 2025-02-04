@@ -1,0 +1,134 @@
+.gallery {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 72rem; /* Equivalent to max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.header {
+  margin-bottom: 6rem;
+  opacity: 0;
+  border-bottom: 1px solid #e5e7eb; /* Equivalent to border-gray-200 */
+  padding-bottom: 2rem;
+}
+
+.title {
+  font-size: 3.75rem; /* Equivalent to text-6xl */
+  font-family: serif;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.25rem; /* Equivalent to text-xl */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+  max-width: 32rem;
+}
+
+.editorial {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.article {
+  opacity: 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.article:nth-child(odd) {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.article:nth-child(even) {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.article:nth-child(even) .content {
+  order: -1;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease-out;
+  aspect-ratio: 4 / 3;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af; /* Equivalent to text-gray-400 */
+  transition: transform 1s ease-out;
+  aspect-ratio: 4 / 3;
+}
+
+.placeholder span {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.imageTitle {
+  font-size: 2rem; /* Equivalent to text-3xl */
+  font-family: serif;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.imageDescription {
+  font-size: 1.125rem; /* Equivalent to text-lg */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+  line-height: 1.75rem;
+}
+
+.meta {
+  font-size: 0.75rem; /* Equivalent to text-sm */
+  color: #9ca3af; /* Equivalent to text-gray-400 */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 1.5rem;
+}

@@ -1,4 +1,4 @@
-.revealSection {
+.sectionReveal {
   padding: 4rem 2rem;
   overflow: hidden;
   font-family: Georgia, serif;
@@ -38,7 +38,6 @@
 }
 
 .content {
-  max-width: 900px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -53,7 +52,7 @@
 }
 
 @media (max-width: 768px) {
-  .revealSection {
+  .sectionReveal {
     padding: 3rem 1.5rem;
   }
 

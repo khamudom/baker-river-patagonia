@@ -1,55 +1,13 @@
 import { useRef, useEffect } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import riverGeoJson from "./riverBakerGeoJson";
+import { SectionReveal } from "../animation/SectionReveal";
 import styles from "./MapSection.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const MapSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const contentContainerRef = useRef<HTMLDivElement>(null);
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<L.Map | null>(null);
-
-  useGSAP(
-    () => {
-      if (!sectionRef.current) return;
-
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center+=200",
-            toggleActions: "play none none reverse",
-          },
-        });
-
-        tl.from(titleRef.current, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          ease: "power3.out",
-        }).from(
-          contentContainerRef.current,
-          {
-            opacity: 0,
-            y: 50,
-            duration: 1.2,
-            ease: "power3.out",
-          },
-          "-=0.8"
-        );
-      }, sectionRef);
-
-      return () => ctx.revert();
-    },
-    { scope: sectionRef }
-  );
 
   // Initialize Leaflet Map only once
   useEffect(() => {
@@ -81,16 +39,15 @@ export const MapSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.mapSection}>
-      {/* Title */}
-      <div>
-        <h2 ref={titleRef} className={styles.title}>
-          Locating the Baker
-        </h2>
-      </div>
-
-      {/* Content Container (Map + Caption together) */}
-      <div ref={contentContainerRef} className={styles.contentContainer}>
+    <SectionReveal className={styles.mapSection}>
+      <div className={styles.contentContainer}>
+        <p>
+          The Baker River, located in Chilean Patagonia's Aysén Region, is
+          renowned for its stunning turquoise-blue waters, a result of glacial
+          sediments from the Northern Patagonian Ice Field. Spanning
+          approximately 200 kilometers, it stands as Chile's most voluminous
+          river.
+        </p>
         <div ref={mapContainerRef} className={styles.map} />
         <figcaption className={styles.caption}>
           <p>
@@ -98,12 +55,11 @@ export const MapSection = () => {
             Patagonia, as it carves through stunning landscapes. This map
             highlights key points of interest along the river, sharing its rich
             history, ecological significance, and the stories of those who live
-            alongside its banks. Explore and uncover the journey of one of the
-            region's most iconic rivers.
+            alongside its banks.
           </p>
         </figcaption>
       </div>
-    </section>
+    </SectionReveal>
   );
 };
 

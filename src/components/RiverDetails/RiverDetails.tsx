@@ -1,8 +1,10 @@
 import { SectionReveal } from "../animation/SectionReveal";
+import styles from "./RiverDetails.module.css";
 
 const RiverDetails = () => {
   return (
     <SectionReveal
+      className={styles.riverDetails}
       title="The Majestic Baker River"
       imageSrc="/images/bakerriver02.jpg"
       imageAlt="baker"
@@ -10,24 +12,24 @@ const RiverDetails = () => {
             landscape."
     >
       <p>
-        The Baker River, located in Chilean Patagonia's Aysén Region, is
-        renowned for its stunning turquoise-blue waters, a result of glacial
-        sediments from the Northern Patagonian Ice Field. Spanning approximately
-        200 kilometers, it stands as Chile's most voluminous river.
+        The Baker River, known as "Baker" in Spanish, is a river in Patagonia,
+        Chile. It is one of the most important rivers in the region and is
+        renowned for its stunning turquoise waters, breathtaking landscapes, and
+        opportunities for outdoor activities such as fishing, kayaking, and
+        trekking. The river originates from the Southern Patagonian Ice Field,
+        which feeds its glacial waters.
       </p>
       <p>
-        The river's journey is marked by diverse landscapes, including notable
-        confluences where the Baker River merges with the Nef River north of
-        Cochrane, creating a powerful and picturesque meeting of waters.
-        Sections like "The Canyons" showcase the river's force as it carves
-        through rugged terrains, offering breathtaking vistas.
+        The Baker River flows through the Aysén Region of Chile and eventually
+        empties into the Gulf of Penas in the Pacific Ocean. Its course takes it
+        through deep valleys, fjords, and dense forests, making it a popular
+        destination for adventure seekers and nature enthusiasts.
       </p>
       <p>
-        The riverbanks are adorned with lush forests, featuring species such as
-        Nothofagus nitida and Pilgerodendron uviferum, contributing to the
-        region's rich biodiversity. These geographical features not only
-        highlight the river's natural beauty but also underscore its
-        significance as a vital freshwater resource in Patagonia.
+        One of the most striking features of the Baker River is its vibrant blue
+        color, which is a result of glacial meltwater carrying fine particles of
+        rock flour. This unique coloration adds to the river's allure and makes
+        it a popular subject for photographers and travelers.
       </p>
     </SectionReveal>
   );

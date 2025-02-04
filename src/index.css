@@ -1,14 +1,21 @@
 /* ========== Root Variables ========== */
 :root {
   /* === Colors === */
-  --color-deep-river-blue: #003f5c; /* Hero, Testimonial */
-  --color-muted-beige: #f4e9da; /* Intro, RiverDetails */
-  --color-white: #ffffff; /* MapSection, Conservation */
-  --color-charcoal-gray: #1c1c1c; /* RiverTimeline, Footer */
-  --color-glacial-blue: #2d9cdb; /* CallToAction */
+  --color-deep-river-blue: #003f5c;
+  --color-muted-beige: #6ab7c3;
+  --color-white: #ffffff;
+  --color-charcoal-gray: #1c1c1c;
+  --color-glacial-blue: #2d9cdb;
+  --color-muted-greenish-gray: #b9c7b3;
 
   /* === Text Colors === */
   --color-text-dark: #1c1c1c; /* Primary readable text */
+  --color-text-dark-opacity: rgba(
+    28,
+    28,
+    28,
+    0.2
+  ); /* Text on light backgrounds */
   --color-text-light: #ffffff; /* Text on dark backgrounds */
   --color-text-accent: var(--color-glacial-blue); /* Optional accent text */
 
@@ -16,6 +23,7 @@
   --background-hero: var(--color-deep-river-blue);
   --background-intro: var(--color-muted-beige);
   --background-map: var(--color-white);
+  --background-white: var(--color-white);
   --background-river-details: var(--color-muted-beige);
   --background-river-timeline: var(--color-charcoal-gray);
   --background-conservation: var(--color-white);
