@@ -93,7 +93,7 @@ const Conservation = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 5%",
+          start: "top 0%",
           // end: `+=${scrollDistance}`,
           end: `${galleryHeight}px`,
           pin: containerRef.current,
@@ -104,10 +104,16 @@ const Conservation = () => {
         },
       });
 
-      tl.to(galleryRef.current, {
-        y: -scrollDistance,
-        ease: "power2.inOut",
-      });
+      tl.fromTo(
+        galleryRef.current,
+        { y: 0 },
+        {
+          y: -scrollDistance,
+          ease: "none",
+          immediateRender: false,
+          delay: -0.5,
+        }
+      );
     },
     {
       scope: sectionRef,

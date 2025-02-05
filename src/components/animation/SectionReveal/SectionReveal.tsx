@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface SectionRevealProps {
   title?: string;
-  children: ReactNode;
+  children?: ReactNode;
   imageSrc?: string;
   imageAlt?: string;
   imageCaption?: string;
